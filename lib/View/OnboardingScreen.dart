@@ -12,20 +12,7 @@ class _Onboarding_ScreenState extends State<Onboarding_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-         body: Column(
-           children: [
-             Padding(
-               padding: const EdgeInsets.all(50.0),
-               child: Center(
-                 child: Container(
-                   width: 50,
-                   height: 50,
-                   color: Colors.purpleAccent,
-                 ),
-               ),
-             )
-           ],
-         ),
+
     );
   }
 }
