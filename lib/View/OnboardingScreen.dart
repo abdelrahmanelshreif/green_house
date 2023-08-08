@@ -15,11 +15,6 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  // List<String> names=[
-  //   "hhjjhj",
-  //   "hvjjkjkjk",
-  //   "hvjjj",
-  // ];
   List<String> names = [
     "Identify Plants",
     "Learn Many Plants Species",
