@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:green_house/View/planet_widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -38,7 +37,8 @@ Widget _builldPageContent(BoxConstraints constraints, double topPosition,
     children: [
       Stack(
         children: [
-          buildPlanetImageDetailsScreen(constraints),
+          buildPlanetImageDetailsScreen(
+              planetImg: "images/png/cactus.png", constraints: constraints),
           buildBackBtn(topPosition, leftPosition),
           buildmoreSettingBtn(topPosition, leftPosition),
           buildHeartOnPlanetLogo(topPosition, leftPosition),
@@ -66,59 +66,5 @@ Widget _builldPageContent(BoxConstraints constraints, double topPosition,
         ),
       )
     ],
-  );
-}
-
-Widget buildBottomNavBar() {
-  return CurvedNavigationBar(
-    backgroundColor: Colors.white,
-    color: Colors.white70,
-    items: <Widget>[
-      Column(
-        children: [
-          CircleAvatar(
-            child: SvgPicture.asset("images/svg/home.svg"),
-            backgroundColor: Colors.white,
-            radius: 30,
-          ),
-          const Text(
-            "Home",
-            style: TextStyle(
-              color: Color(0xFF2CD992),
-              fontSize: 10,
-              fontWeight: FontWeight.w500,
-            ),
-          )
-        ],
-      ),
-      Column(
-        children: [
-          CircleAvatar(
-            child: SvgPicture.asset("images/svg/add.svg"),
-            backgroundColor: Colors.blue,
-            // backgroundImage: AssetImage("images/png/add_background.png"),
-          ),
-        ],
-      ),
-      Column(
-        children: [
-          CircleAvatar(
-            child: SvgPicture.asset("images/svg/profile.svg"),
-            backgroundColor: Colors.white,
-          ),
-          const Text(
-            "PROFILE",
-            style: TextStyle(
-              color: Color(0xFFD2D2D2),
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
-      ),
-    ],
-    onTap: (index) {
-      //Handle button tap
-    },
   );
 }
