@@ -14,7 +14,7 @@ Widget buildTextbeforeDescritionOfPlanet(
           child: Text(
             kingdom!,
             overflow: TextOverflow.ellipsis, // Set overflow property
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xFF495566),
             ),
           ),
@@ -28,7 +28,7 @@ Widget buildTextbeforeDescritionOfPlanet(
           child: Text(
             family!,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               color: Color(0xFF495566),
             ),
           ),
