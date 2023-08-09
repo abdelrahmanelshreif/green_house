@@ -75,6 +75,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  jumping_dot:
+    dependency: "direct main"
+    description:
+      name: jumping_dot
+      sha256: a2f755140da73d018bf5198acd83cdd2898a393e5ea45ee94250b9ba44566d1c
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.6"
   lints:
     dependency: transitive
     description:
@@ -186,3 +194,4 @@ packages:
     version: "0.1.4-beta"
 sdks:
   dart: ">=3.1.0-185.0.dev <4.0.0"
+  flutter: ">=1.17.0"
