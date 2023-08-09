@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:green_house/View/profile_screen.dart';
 import 'package:green_house/View/planet_details_screen.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:green_house/View/detail_article_screen.dart';
+import 'package:green_house/View/article_detail_screen.dart';
 
 class MyPlanetApp extends StatefulWidget {
   @override

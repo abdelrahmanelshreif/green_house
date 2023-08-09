@@ -96,19 +96,23 @@ Widget buildPlanetImageDetailsScreen(
   );
 }
 
-Widget buildDescription(double deviceWidth) {
+Widget buildDescription(double deviceWidth,
+    {String descText =
+        """The word "cactus" derives, through Latin, from the Ancient Greek κάκτος, kaktos, a name originally used by Theophrastus for a spiny plant whose identity is not certain. Cacti occur in a wide range of shapes and sizes. Most cacti live in habitats subject to at least some drought."""}) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
       Container(
-        width: deviceWidth * 0.85,
-        child: Text(
-          """The word "cactus" derives, through Latin, from the Ancient Greek κάκτος, kaktos, a name originally used by Theophrastus for a spiny plant whose identity is not certain. Cacti occur in a wide range of shapes and sizes. Most cacti live in habitats subject to at least some drought. """,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 8,
-          style: TextStyle(
-            color: Color(0xff858995),
-            fontSize: 15,
+        width: deviceWidth * 0.7,
+        child: SingleChildScrollView(
+          child: Text(
+            descText,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 8,
+            style: TextStyle(
+              color: Color(0xff858995),
+              fontSize: 15,
+            ),
           ),
         ),
       ),
@@ -193,12 +197,13 @@ Widget buildUsageTypesOfPlanet(
   );
 }
 
-Widget buildPlanetTitleName({String titleName ="Circle Cactus"}) {
+Widget buildPlanetTitleName({String titleName = "Circle Cactus"}) {
   return Row(
     children: [
       Expanded(
           child: Container(
-        child: Text(titleName,
+        child: Text(
+          titleName,
           style: TextStyle(
             color: Color(0xff36455a),
             fontSize: 27,

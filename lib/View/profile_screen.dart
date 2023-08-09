@@ -2,6 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:green_house/View/planet_widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -29,7 +30,7 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   _buildTextAfterOftheThreeChoices(),
                   writeCollectedPlanetName(),
-                  _buildDateOfPlanetCollected(),
+                  buildDateOfPlanetCollected(),
                   Container(
                     clipBehavior: Clip.none,
                     height: deviceHeight * 0.35,
@@ -134,16 +135,20 @@ Widget _buildTextAfterOftheThreeChoices() {
   );
 }
 
-Widget writeCollectedPlanetName({String avatar ='images/svg/Subtract.svg'}) {
+Widget writeCollectedPlanetName({String avatar = 'images/svg/Subtract.svg',String text = 'Alagare Plant'}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 0),
     child: Row(
       children: [
-        SvgPicture.asset(avatar),
+        CircleAvatar(
+            child: SvgPicture.asset(avatar),
+          radius: 20,
+          backgroundColor: Colors.white,
+        ),
         SizedBox(width: 5),
         Column(
           children: [
-            Text('Alagatre Plant',
+            Text(text,
                 style: TextStyle(
                   color: Color(0xFF364459),
                   fontSize: 14,
@@ -156,9 +161,9 @@ Widget writeCollectedPlanetName({String avatar ='images/svg/Subtract.svg'}) {
   );
 }
 
-Widget _buildDateOfPlanetCollected() {
+Widget buildDateOfPlanetCollected() {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0),
     child: Row(
       children: [
         Text(
