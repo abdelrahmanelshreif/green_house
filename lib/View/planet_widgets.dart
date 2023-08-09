@@ -174,25 +174,23 @@ Widget buildStarsAndRate() {
 Widget buildUsageTypesOfPlanet(
     {String text1 = 'DANGER', String text2 = 'DECORATION'}) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      Expanded(
-          flex: 1,
-          child: Container(
-            child: Text(text1,
-                style: TextStyle(
-                  backgroundColor: Color(0xffe7f2fd),
-                  color: Color(0xff2f91eb),
-                )),
-          )),
-      Expanded(
-          flex: 3,
-          child: Container(
-            child: Text(text2,
-                style: TextStyle(
-                  backgroundColor: Color(0xffe7f2fd),
-                  color: Color(0xff2f91eb),
-                )),
-          )),
+      Container(
+        child: Text(text1,
+            style: TextStyle(
+              backgroundColor: Color(0xffe7f2fd),
+              color: Color(0xff2f91eb),
+            )),
+      ),
+      SizedBox(width: 20),
+      Container(
+        child: Text(text2,
+            style: TextStyle(
+              backgroundColor: Color(0xffe7f2fd),
+              color: Color(0xff2f91eb),
+            )),
+      ),
     ],
   );
 }
