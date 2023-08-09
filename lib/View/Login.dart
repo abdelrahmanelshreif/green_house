@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:green_house/View/SignUp.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -50,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text("Let’s Learn More About Plants",
                         style: TextStyle(fontSize: 20,color: Colors.grey),),
                       SizedBox(height: 28,),
-                      _TextFieldTitel("Username"),
+                      TextFieldTitel("Username"),
                         SizedBox(height: 10,),
 
                         Padding(
@@ -64,12 +65,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                     if (_phoneControler.text.length != 11) {
                                       isCorrect = false;
-                                      return "Your number should be 11 digits";
+                                      return "Your name should be 11 letter";
                                     }
-                                    if (_phoneControler.text[0] != "0") {
+                                  /*  if (_phoneControler.text[0] != "0") {
                                       isCorrect = false;
                                       return "Your number should be start with 0";
-                                    }
+                                    }*/
 
                                     return null;
                                   },
@@ -91,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                       SizedBox(height: 28,),
-                      _TextFieldTitel("Password"),
+                      TextFieldTitel("Password"),
                       SizedBox(height: 10,),
                       Padding(
                         padding: const EdgeInsets.only(right: 30),
@@ -151,17 +152,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(height: 30,),
                       _LoginButton(),
                       SizedBox(height: 20,),
-                      const Row(
+                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text("Donot have account?",style: TextStyle(
                             fontSize: 15,
                             color: Colors.grey
                           ),),
-                          Text("Sign Up",style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 15,
-                          ),)
+
+
+                          InkWell(
+                               onTap: (){
+                                 Navigator.pushReplacement(
+                                   context,
+                                   MaterialPageRoute(builder: (context) =>Sign_UP()),
+                                 );
+                               },
+                            child: Text("Sign Up",style: TextStyle(
+                              color: Colors.green,
+
+                              fontSize: 15,
+                            ),),
+                          )
                         ],
                       )
 
@@ -205,7 +217,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 );
   }
 
-  Widget _TextFieldTitel(String text) {
+  Widget TextFieldTitel(String text) {
     return Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

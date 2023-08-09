@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:green_house/View/Login.dart';
 import 'package:green_house/View/OnboardingScreen.dart';
+import 'package:green_house/View/SignUp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
 
      home: OnboardingScreen(num: 1),
      // home: LoginScreen(),
+      //home: Sign_UP(),
     );
         }
 }
