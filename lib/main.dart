@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
-// import 'package:green_house/View/OnboardingScreen.dart';
+import 'package:green_house/controller/bottom_nav_bar_controller.dart';
+import 'package:green_house/View/OnboardingScreen.dart';
 import 'package:green_house/View/planet_details_screen.dart';
+import 'package:green_house/View/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: HomeScreen(),
-        home: PlanetDetailsScreen());
+        // home: ProfileScreen());
+        home: MyPlanetApp());
+    // home: PlanetDetailsScreen());
   }
 }
