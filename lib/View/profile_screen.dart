@@ -135,13 +135,15 @@ Widget _buildTextAfterOftheThreeChoices() {
   );
 }
 
-Widget writeCollectedPlanetName({String avatar = 'images/svg/Subtract.svg',String text = 'Alagare Plant'}) {
+Widget writeCollectedPlanetName(
+    {String avatar = 'images/svg/Subtract.svg',
+    String text = 'Alagare Plant'}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 0),
     child: Row(
       children: [
         CircleAvatar(
-            child: SvgPicture.asset(avatar),
+          child: SvgPicture.asset(avatar),
           radius: 20,
           backgroundColor: Colors.white,
         ),

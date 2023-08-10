@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:green_house/View/SignUp.dart';
 
-import '../Cubit/login_cubit.dart';
+import 'package:green_house/cubit/login_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -13,7 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
   final _phoneControler = TextEditingController();
   bool isCorrect = true;
   final form = GlobalKey<FormState>();
@@ -31,18 +30,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void toggelpasswordText() {
     obsecureText = !obsecureText;
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
-        onTap: FocusScope
-            .of(context)
-            .unfocus,
+        onTap: FocusScope.of(context).unfocus,
         child: Padding(
           padding: const EdgeInsets.only(top: 61, left: 20),
           child: SingleChildScrollView(
@@ -52,41 +47,61 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Icons.arrow_back_ios, color: Colors.grey),
-                  SizedBox(height: 19,),
-                  Text("Hello", style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  SizedBox(height: 10,),
-                  Text("Let’s Learn More About Plants",
-                    style: TextStyle(fontSize: 20, color: Colors.grey),),
-                  SizedBox(height: 28,),
+                  SizedBox(
+                    height: 19,
+                  ),
+                  Text(
+                    "Hello",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "Let’s Learn More About Plants",
+                    style: TextStyle(fontSize: 20, color: Colors.grey),
+                  ),
+                  SizedBox(
+                    height: 28,
+                  ),
                   TextFieldTitel("Username"),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   //text field user name
                   _TextFeildUserName(),
-                  SizedBox(height: 28,),
+                  SizedBox(
+                    height: 28,
+                  ),
                   TextFieldTitel("Password"),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   //text field password
                   _TextFieldPassword(),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   // forget password and remmber me
                   _forgetPasswordandRemmberMe(),
-                  const SizedBox(height: 30,),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   _LoginButton(),
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   //signUP
                   _SignUp(context)
-
                 ],
               ),
             ),
           ),
         ),
       ),
-
-
     );
   }
 
@@ -97,12 +112,10 @@ class _LoginScreenState extends State<LoginScreen> {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Donot have account?", style: TextStyle(
-                fontSize: 15,
-                color: Colors.grey
-            ),),
-
-
+            Text(
+              "Donot have account?",
+              style: TextStyle(fontSize: 15, color: Colors.grey),
+            ),
             InkWell(
               onTap: () {
                 cubit.SignUpChange(context);
@@ -111,11 +124,13 @@ class _LoginScreenState extends State<LoginScreen> {
               MaterialPageRoute(builder: (context) => Sign_UP()),
             );*/
               },
-              child: Text("Sign Up", style: TextStyle(
-                color: Colors.green,
-
-                fontSize: 15,
-              ),),
+              child: Text(
+                "Sign Up",
+                style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 15,
+                ),
+              ),
             )
           ],
         );
@@ -129,15 +144,22 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Row(
         children: [
           Icon(Icons.check_box_outline_blank, color: Colors.grey),
-          SizedBox(width: 5,),
-          Text("Remember me", style: TextStyle(
-            color: Colors.grey,
-          ),),
+          SizedBox(
+            width: 5,
+          ),
+          Text(
+            "Remember me",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
+          ),
           Spacer(),
-          Text("Forget Password?", style: TextStyle(
-            color: Colors.grey,
-          ),),
-
+          Text(
+            "Forget Password?",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
+          ),
         ],
       ),
     );
@@ -154,18 +176,16 @@ class _LoginScreenState extends State<LoginScreen> {
 
           if (_passwordControler.text.length < 6) {
             return "Password should be more than 6 characters";
-          }
-          else {
+          } else {
             return null;
           }
         },
-
         decoration: InputDecoration(
-          suffixIcon:
-          InkWell(
+          suffixIcon: InkWell(
               onTap: toggelpasswordText,
-              child: Icon(obsecureText ? CupertinoIcons.eye :
-              CupertinoIcons.eye_slash, color: Colors.black)),
+              child: Icon(
+                  obsecureText ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
+                  color: Colors.black)),
           filled: true,
           fillColor: Color(0xFBFDFF),
           //   hintText: "Password",
@@ -173,10 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         enabledBorder: InputBorder.none,
                             disabledBorder: InputBorder.none,
                             errorBorder: InputBorder.none,*/
-
-
         ),
-
       ),
     );
   }
@@ -201,20 +218,19 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 return null;
               },
-
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Color(0xFBFDFF),
                 suffixIcon: isCorrect
-                    ? Icon(Icons.check, color: Colors.green,)
+                    ? Icon(
+                        Icons.check,
+                        color: Colors.green,
+                      )
                     : Icon(
-                  Icons.check, color: Colors.red,
-                  //   color: Colors.green,
-                ),
-
-              )
-
-          )
+                        Icons.check, color: Colors.red,
+                        //   color: Colors.green,
+                      ),
+              ))
         ],
       ),
     );
@@ -238,14 +254,13 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Container(
                 width: 340,
                 height: 50,
-                decoration: BoxDecoration(
-                    color: Colors.green
-                ),
+                decoration: BoxDecoration(color: Colors.green),
                 child: Center(
-                  child: Text("LOGIN", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                  )),
+                  child: Text("LOGIN",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      )),
                 ),
               ),
             ),
@@ -259,10 +274,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(text, style: TextStyle(
-          color: Colors.grey,
-          fontSize: 15,
-        ),)
+        Text(
+          text,
+          style: TextStyle(
+            color: Colors.grey,
+            fontSize: 15,
+          ),
+        )
       ],
     );
   }

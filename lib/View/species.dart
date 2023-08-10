@@ -2,7 +2,6 @@ import 'package:azlistview/azlistview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 import 'AlphabetList_ScrollView.dart';
 
 class species extends StatefulWidget {
@@ -14,7 +13,34 @@ class species extends StatefulWidget {
 
 class _speciesState extends State<species> {
   @override
-   List<String> alphabets = [  "A",  "B",  "C",  "D",  "E",  "F",  "G",  "H",  "I",  "J",  "K",  "L",  "M",  "N",  "O",  "P",  "Q",  "R",  "S",  "T",  "U",  "V",  "W",  "X",  "Y",  "Z"  ];
+  List<String> alphabets = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z"
+  ];
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +70,7 @@ class _speciesState extends State<species> {
                 // bottom: deviceHeight*-0.5,
                 child: Container(
                   width: 204,
-                  height:204,
+                  height: 204,
                   decoration: ShapeDecoration(
                     color: Colors.white.withOpacity(0.15000000596046448),
                     shape: OvalBorder(),
@@ -57,7 +83,7 @@ class _speciesState extends State<species> {
                 // bottom: deviceHeight*-0.5,
                 child: Container(
                   width: 124,
-                  height:124,
+                  height: 124,
                   decoration: ShapeDecoration(
                     color: Colors.white.withOpacity(0.15000000596046448),
                     shape: OvalBorder(),
@@ -65,14 +91,13 @@ class _speciesState extends State<species> {
                 ),
               ),
               Positioned(
-               top: 79,
+                top: 79,
                 left: 20,
                 child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                    child: Icon(Icons.arrow_back_ios,color: Colors.white)
-                ),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.arrow_back_ios, color: Colors.white)),
               ),
               Positioned(
                 top: 79,
@@ -81,12 +106,22 @@ class _speciesState extends State<species> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Icon(Icons.more_vert,color: Colors.white,size: 30,)),
+                    child: Icon(
+                      Icons.more_vert,
+                      color: Colors.white,
+                      size: 30,
+                    )),
               ),
               Positioned(
                   top: 110,
                   right: -20,
-                  child: Text("Species",style: TextStyle(fontSize: 85,fontWeight: FontWeight.bold,color: Colors.white.withOpacity(.2)),)),
+                  child: Text(
+                    "Species",
+                    style: TextStyle(
+                        fontSize: 85,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white.withOpacity(.2)),
+                  )),
               Positioned(
                 top: 120,
                 left: 22,
@@ -99,8 +134,8 @@ class _speciesState extends State<species> {
                 ),
               ),
               Positioned(
-                  top: 172,
-                  left: 40,
+                top: 172,
+                left: 40,
                 child: Container(
                   width: 330,
                   height: 50,
@@ -108,29 +143,32 @@ class _speciesState extends State<species> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
                   ),
-
                   child: TextFormField(
-
                     decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search,color: Color(0xffD2D2D2),),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Color(0xffD2D2D2),
+                      ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
-
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      hintText:"Search For Species",hintStyle: TextStyle(color: Color(0xffD2D2D2),),
+                      hintText: "Search For Species",
+                      hintStyle: TextStyle(
+                        color: Color(0xffD2D2D2),
+                      ),
                     ),
                   ),
                 ),
-                ),
+              ),
             ],
           ),
           Container(
-            height: 650,
-            width: 400,
-            
-            child:ListView.builder(itemBuilder: (context, index) => const AlphabetListScrollView(
-                items:[
+              height: 650,
+              width: 400,
+              child: ListView.builder(
+                itemBuilder: (context, index) =>
+                    const AlphabetListScrollView(items: [
                   'CIRSIUM',
                   'CACTUS',
                   'CISSUS',
@@ -154,7 +192,8 @@ class _speciesState extends State<species> {
                   'rtyuityu',
                   'ryyyyy',
                   'mddjie',
-                  'mdcy', 'ECHINACEA',
+                  'mdcy',
+                  'ECHINACEA',
                   'ECHINOPS',
                   'ffff',
                   'fassdi',
@@ -163,9 +202,9 @@ class _speciesState extends State<species> {
                   'ryyyyy',
                   'mddjie',
                   'mdcy',
-                ]
-            ),itemCount: 1,)
-          ),
+                ]),
+                itemCount: 1,
+              )),
         ],
       ),
     );

@@ -4,6 +4,7 @@ import 'package:green_house/View/profile_screen.dart';
 import 'package:green_house/View/planet_details_screen.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:green_house/View/article_detail_screen.dart';
+import 'package:green_house/View/Login.dart';
 
 class MyPlanetApp extends StatefulWidget {
   @override
@@ -14,7 +15,8 @@ class _MyPlanetAppState extends State<MyPlanetApp> {
   int selectedIdx = 0;
 
   final List<Widget> screensList = [
-    PlanetDetailsScreen(),
+    // PlanetDetailsScreen(),
+    LoginScreen(),
     DetailArticleScreen(),
     ProfileScreen(),
   ];

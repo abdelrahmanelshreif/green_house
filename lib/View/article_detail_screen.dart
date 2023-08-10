@@ -12,7 +12,6 @@ class DetailArticleScreen extends StatelessWidget {
     return Scaffold(
       body: LayoutBuilder(
         builder: (context, constraints) {
-
           final double topPosition = constraints.maxHeight * 0.066;
           final double leftPosition = constraints.maxWidth * 0.05;
           final double deviceWidth = constraints.maxWidth;
