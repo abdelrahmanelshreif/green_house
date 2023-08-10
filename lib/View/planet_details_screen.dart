@@ -80,6 +80,7 @@ Widget _buildPlants(
       itemCount: plantDataList.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) => _buildPlantPage(
+          context,
           plantDataList[index].planetImgSrc,
           constraints,
           topPosition,
@@ -91,6 +92,7 @@ Widget _buildPlants(
 }
 
 Column _buildPlantPage(
+    BuildContext context,
     String planetImgSrc,
     BoxConstraints constraints,
     double topPosition,
@@ -105,7 +107,7 @@ Column _buildPlantPage(
         children: [
           buildPlanetImageDetailsScreen(
               planetImg: planetImgSrc, constraints: constraints),
-          buildBackBtn(topPosition, leftPosition),
+          buildBackBtn(context,topPosition, leftPosition),
           buildmoreSettingBtn(topPosition, leftPosition),
           buildHeartOnPlanetLogo(topPosition, leftPosition),
         ],

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green_house/View/Login.dart';
+import 'package:green_house/controller/bottom_nav_bar_controller.dart';
 
 class Sign_UP extends StatefulWidget {
   const Sign_UP({super.key});
@@ -287,9 +288,9 @@ class _Sign_UPState extends State<Sign_UP> {
         child: InkWell(
           onTap: () {
             if (isCorrect == true) {
-              Navigator.pushReplacement(
+              Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => LoginScreen()),
+                MaterialPageRoute(builder: (context) => MyPlanetApp()),(route) => false,
               );
               _form.currentState?.validate();
               setState(() {});

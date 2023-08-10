@@ -122,13 +122,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               builder: (context) => LoginScreen()),
                         );
                       }
-/*
-                    if(widget.num < 3){
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) =>  OnboardingScreen(num: widget.num+1)),
-                      );
-                    }*/
                     },
                     child: Container(
                       width: 329,

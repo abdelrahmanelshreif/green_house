@@ -25,7 +25,7 @@ class DetailArticleScreen extends StatelessWidget {
                     planetImg: 'images/png/articlepage.png',
                     constraints: constraints,
                   ),
-                  buildBackBtn(topPosition, leftPosition),
+                  buildBackBtn(context, topPosition, leftPosition),
                   buildmoreSettingBtn(topPosition, leftPosition),
                   buildHeartOnPlanetLogo(topPosition, leftPosition),
                 ],

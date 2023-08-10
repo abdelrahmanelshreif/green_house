@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:green_house/model/articles_model.dart';
 import '../constants/constimage.dart';
+import 'article_detail_screen.dart';
 
 class articles extends StatefulWidget {
   const articles({Key? key}) : super(key: key);
@@ -163,88 +164,94 @@ class _articlesState extends State<articles> {
       required String profileimage,
       required String name,
       required String date}) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      width: 360,
-      height: 280,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25),
-        color: Colors.white,
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            image,
-            width: 360,
-            height: 145,
-            fit: BoxFit.fill,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Text(
-              text,
-              style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xff36455A)),
+    return InkWell(
+      onTap: () {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DetailArticleScreen()));
+      },
+      child: Container(
+        margin: EdgeInsets.only(bottom: 20),
+        width: 360,
+        height: 280,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: [
+            Image.asset(
+              image,
+              width: 360,
+              height: 145,
+              fit: BoxFit.fill,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  clipBehavior: Clip.antiAlias,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                  child: Image.asset(
-                    profileimage,
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                text,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff36455A)),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                children: [
+                  Container(
                     width: 40,
                     height: 40,
-                    fit: BoxFit.cover,
+                    clipBehavior: Clip.antiAlias,
+                    decoration:
+                        BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                    child: Image.asset(
+                      profileimage,
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  children: [
-                    Text(
-                      name,
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff36455A),
-                          fontSize: 14),
-                    ),
-                    Text(
-                      date,
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xffA1A8B9)),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  width: 130,
-                ),
-                Icon(
-                  Icons.bookmark_border,
-                  color: Colors.grey,
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                Icon(
-                  CupertinoIcons.heart,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-          )
-        ],
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xff36455A),
+                            fontSize: 14),
+                      ),
+                      Text(
+                        date,
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffA1A8B9)),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 130,
+                  ),
+                  Icon(
+                    Icons.bookmark_border,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Icon(
+                    CupertinoIcons.heart,
+                    color: Colors.grey,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

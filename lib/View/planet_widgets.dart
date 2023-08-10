@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:green_house/controller/bottom_nav_bar_controller.dart';
+import 'package:green_house/homepage/homescreen.dart';
 
 Widget buildTextbeforeDescritionOfPlanet(
     {required String? kingdom, required String? family}) {
@@ -66,13 +67,27 @@ Widget buildmoreSettingBtn(double topPosition, double leftPosition) {
   );
 }
 
-Widget buildBackBtn(double topPosition, double leftPosition) {
+Widget buildBackBtn(
+    BuildContext context, double topPosition, double leftPosition) {
   return Positioned(
     top: topPosition,
     left: leftPosition,
-    child: const Icon(
-      Icons.arrow_back_ios_new,
-      color: Colors.white,
+    child: InkWell(
+      onTap: () {
+        if (Navigator.of(context).canPop()) {
+          Navigator.pop(context); // Navigate back
+        } else {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => MyPlanetApp()), // Navigate to home screen
+          );
+        }
+      },
+      child: const Icon(
+        Icons.arrow_back_ios_new,
+        color: Colors.white,
+      ),
     ),
   );
 }

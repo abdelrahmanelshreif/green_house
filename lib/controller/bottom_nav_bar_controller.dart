@@ -6,6 +6,7 @@ import 'package:green_house/View/Login.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:green_house/View/article_detail_screen.dart';
 import 'package:green_house/View/add_new_plant.dart';
+import 'package:green_house/homepage/homescreen.dart';
 
 class MyPlanetApp extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _MyPlanetAppState extends State<MyPlanetApp> {
   final List<Widget> screensList = [
     // LoginScreen(),
     // DetailArticleScreen(),
-    PlanetDetailsScreen(),
+    homescreen(),
     PlantFormDialog(),
     ProfileScreen(),
   ];

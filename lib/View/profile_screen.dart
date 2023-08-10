@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:green_house/View/planet_widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_house/View/species_search.dart';
+import 'package:green_house/controller/bottom_nav_bar_controller.dart';
+
+import 'articles.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -22,8 +26,9 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           children: [
             _buildProfileCardAndControls(
-                deviceWidth, deviceHeight, topPosition, leftPosition),
-            _buildThreeChoices(),
+                context, deviceWidth, deviceHeight, topPosition, leftPosition),
+
+            _buildThreeChoices(context),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
               child: Column(
@@ -46,7 +51,6 @@ class ProfileScreen extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: buildBottomNavBar(),
     );
   }
 }
@@ -97,24 +101,24 @@ Widget _buildImagesContainer(double deviceWidth, double deviceHeight) {
   );
 }
 
-Widget _buildProfileCardAndControls(double deviceWidth, double deviceHeight,
-    double topPosition, double leftPosition) {
+Widget _buildProfileCardAndControls(BuildContext context, double deviceWidth,
+    double deviceHeight, double topPosition, double leftPosition) {
   return Container(
     width: deviceWidth,
     height: deviceHeight * 0.3,
     color: Color(0xff4dd4b1),
     child: _buildHeader_Info_Controls(
-        deviceHeight, deviceWidth, topPosition, leftPosition),
+        context, deviceHeight, deviceWidth, topPosition, leftPosition),
   );
 }
 
-Widget _buildThreeChoices() {
+Widget _buildThreeChoices(context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      _buildProfileChoicesWhite("ARICLES"),
-      _buildProfileChoices("SPECIES"),
-      _buildProfileChoicesWhite("LIKES"),
+      _buildProfileChoicesWhite(context, "ARTICLES"),
+      _buildProfileChoices(context, "SPECIES"),
+      _buildProfileChoicesWhite(context, "LIKES"),
     ],
   );
 }
@@ -181,8 +185,8 @@ Widget buildDateOfPlanetCollected() {
   );
 }
 
-Widget _buildHeader_Info_Controls(double deviceHeight, double deviceWidth,
-    double topPosition, double leftPosition) {
+Widget _buildHeader_Info_Controls(BuildContext context, double deviceHeight,
+    double deviceWidth, double topPosition, double leftPosition) {
   return Stack(
     children: [
       Positioned(
@@ -210,7 +214,7 @@ Widget _buildHeader_Info_Controls(double deviceHeight, double deviceWidth,
           )),
       _buildPersonAvatar(),
       buildmoreSettingBtn(topPosition, leftPosition),
-      buildBackBtn(topPosition, leftPosition),
+      buildBackBtn(context, topPosition, leftPosition),
     ],
   );
 }
@@ -255,34 +259,70 @@ Widget _buildPersonAvatar() {
   );
 }
 
-Widget _buildProfileChoices(String text) {
-  return Container(
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.all(10),
-      child: Text(text,
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w700, fontSize: 16)),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(23.50),
-        color: Color(0xFF48A2F4),
-      )
-      // decoration: BorderRadius,
-      );
+Widget _buildProfileChoices(BuildContext context, String text) {
+  return InkWell(
+    onTap: () {
+      if (text == "SPECIES") {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => species_search(),
+            ));
+      } else if (text == "ARTICLES") {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => articles(),
+            ));
+      }
+    },
+    child: Container(
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.all(10),
+        child: Text(text,
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w700,
+                fontSize: 16)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(23.50),
+          color: Color(0xFF48A2F4),
+        )
+        // decoration: BorderRadius,
+        ),
+  );
 }
 
-Widget _buildProfileChoicesWhite(String text) {
-  return Container(
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.all(10),
-      child: Text(text,
-          style: TextStyle(
-              color: Color(0xFFC5C5C5),
-              fontWeight: FontWeight.w700,
-              fontSize: 16)),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(23.50),
-        color: Color(0xfffbfdff),
-      )
-      // decoration: BorderRadius,
-      );
+Widget _buildProfileChoicesWhite(context, String text) {
+  return InkWell(
+      onTap: () {
+        if (text == "SPECIES") {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => species_search(),
+              ));
+        } else if (text == "ARTICLES") {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => articles(),
+              ));
+        }
+      },
+    child: Container(
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.all(10),
+        child: Text(text,
+            style: TextStyle(
+                color: Color(0xFFC5C5C5),
+                fontWeight: FontWeight.w700,
+                fontSize: 16)),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(23.50),
+          color: Color(0xfffbfdff),
+        )
+        // decoration: BorderRadius,
+        ),
+  );
 }

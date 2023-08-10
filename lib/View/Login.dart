@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:green_house/controller/bottom_nav_bar_controller.dart';
+import 'package:green_house/homepage/homescreen.dart';
 import 'package:green_house/view/SignUp.dart';
 
 import '../Cubit/login_cubit.dart';
+import 'OnboardingScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -205,7 +208,7 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           TextFormField(
               controller: _phoneControler,
-              obscureText: obsecureText,
+              // obscureText: obsecureText,
               validator: (value) {
                 if (_phoneControler.text.length != 11) {
                   isCorrect = false;
@@ -246,10 +249,11 @@ class _LoginScreenState extends State<LoginScreen> {
             child: InkWell(
               onTap: () {
                 cubit.ChangeLogin;
-                /*    form.currentState?.validate();
-            setState(() {
-
-            });*/
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyPlanetApp()),
+                  (route) => false,
+                );
               },
               child: Container(
                 width: 340,
