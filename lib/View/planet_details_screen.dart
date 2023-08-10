@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:green_house/View/planet_widgets.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:green_house/controller/bottom_nav_bar_controller.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:green_house/View/planet_widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class PlantData {
@@ -16,7 +17,10 @@ class PlantData {
     required this.planetFamily,
   });
 }
-
+void newPlantAdd(String planetImgSrc,String planetKingdom,String planetFamily)
+{
+  plantDataList.add(PlantData(planetImgSrc: planetImgSrc, planetKingdom: planetKingdom, planetFamily: planetFamily));
+}
 final List<PlantData> plantDataList = [
   PlantData(
     planetImgSrc: 'images/png/cactus.png',
@@ -25,16 +29,6 @@ final List<PlantData> plantDataList = [
   ),
   PlantData(
     planetImgSrc: 'images/png/spinach.png',
-    planetKingdom: 'Plantae',
-    planetFamily: 'Rosaceae',
-  ),
-  PlantData(
-    planetImgSrc: 'images/png/cactus.png',
-    planetKingdom: 'Plantae',
-    planetFamily: 'Rosaceae',
-  ),
-  PlantData(
-    planetImgSrc: 'images/png/cactus.png',
     planetKingdom: 'Plantae',
     planetFamily: 'Rosaceae',
   ),

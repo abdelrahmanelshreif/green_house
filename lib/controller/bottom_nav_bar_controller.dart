@@ -2,9 +2,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:green_house/View/profile_screen.dart';
 import 'package:green_house/View/planet_details_screen.dart';
+import 'package:green_house/View/Login.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:green_house/View/article_detail_screen.dart';
-import 'package:green_house/View/Login.dart';
+import 'package:green_house/View/add_new_plant.dart';
 
 class MyPlanetApp extends StatefulWidget {
   @override
@@ -15,9 +16,10 @@ class _MyPlanetAppState extends State<MyPlanetApp> {
   int selectedIdx = 0;
 
   final List<Widget> screensList = [
-    // PlanetDetailsScreen(),
-    LoginScreen(),
-    DetailArticleScreen(),
+    // LoginScreen(),
+    // DetailArticleScreen(),
+    PlanetDetailsScreen(),
+    PlantFormDialog(),
     ProfileScreen(),
   ];
 

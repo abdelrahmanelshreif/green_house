@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:green_house/View/SignUp.dart';
+import 'package:green_house/view/SignUp.dart';
 
-import 'package:green_house/cubit/login_cubit.dart';
+import '../Cubit/login_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
