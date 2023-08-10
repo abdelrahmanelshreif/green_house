@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Icons.arrow_back_ios, color: Colors.grey),
-                  SizedBox(height: 20,),
+                  SizedBox(height: 19,),
                   Text("Hello", style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,

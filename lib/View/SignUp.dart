@@ -56,7 +56,7 @@ class _Sign_UPState extends State<Sign_UP> {
                                 obscureText: obsecureText,
                                 validator: (value) {
 
-                                  if (_nameConteroler.text.length > 15) {
+                                  if (_nameConteroler.text.length < 15) {
                                     isCorrect = false;
                                     return "Your character should be 15 letters";
                                   }
